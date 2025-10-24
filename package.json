@@ -15,8 +15,8 @@
       "name": "bpm",
       "title": "bpm",
       "subtitle": "Tap BPM",
-      "description": "Tap to calculate Beats Per Minute",
-      "mode": "no-view"
+      "description": "Tap to count Beats Per Minute",
+      "mode": "view"
     }
   ],
   "dependencies": {
