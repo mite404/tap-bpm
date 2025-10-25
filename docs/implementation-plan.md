@@ -104,3 +104,15 @@ Write clear instructions in your UI
 Add helpful metadata to package.json
 Test the extension from a fresh Raycast restart
 (Optional) Share with the Raycast community!
+
+- Features:
+  - can use any key (won't work with blank window implementation)
+    - limitation of Raycast for my purposes only Space/Enter works
+  - How can the BPM display be larger than these?
+    (i want the BPM to be in the middle w/ 1/2 time above and double time below
+    smaller font pt. and grayer color)
+    - can print 1/2 time and double time BPM
+    - can flash on tap / flashes when BPM speed determined
+
+  - upon stopping tapping the BPM average is copied directly to clipboard
+  - menu bar extra
