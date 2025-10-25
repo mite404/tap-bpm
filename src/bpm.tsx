@@ -7,18 +7,25 @@ import { useState } from "react";
 // }
 
 export default function GetKeypress() {
-  const [count, setCount] = useState(0)
-  const [lastPress, setLastPress] = useState("")
+  const [timestampArr, setTimestampArr] = useState<number[]>([])
+
+  const timestamp: number = Date.now()
+
+  const firstTimestamp = timestampArr[0]
+  const lastTimestamp = timestampArr[timestampArr.length - 1]
+  const numberOfIntervals = timestampArr.length - 2
+  const bpm = numberOfIntervals / ((lastTimestamp - firstTimestamp) / 1000) * 60
 
   const handleTap = () => {
-    setCount(count + 1)
+    setTimestampArr([...timestampArr, timestamp])
   }
 
   return (
     <List>
       <List.EmptyView
         icon="🥁"
-        title={`Count: ${count}`}
+        title={`BPM: ${Math.floor(bpm)}`}
+        description="Tap SPACE/ENTER..."
         actions={
           <ActionPanel>
             <Action
