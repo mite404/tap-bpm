@@ -1,8 +1,10 @@
 import { Action, ActionPanel, List } from "@raycast/api";
-import { useState } from "react";
+import { useRef, useState } from "react";
+// import { Timeout } from "timers"
 
 export default function GetKeypress() {
   const [timestampArr, setTimestampArr] = useState<number[]>([])
+  const timeoutId = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const timestamp: number = Date.now()
 
@@ -12,7 +14,13 @@ export default function GetKeypress() {
   const bpm = numberOfIntervals / ((lastTimestamp - firstTimestamp) / 1000) * 60
 
   const handleTap = () => {
+    if (timeoutId.current !== null) {
+      clearTimeout(timeoutId.current)
+    }
     setTimestampArr([...timestampArr, timestamp])
+    timeoutId.current = setTimeout(() => {
+      console.log('Timeout reached')
+      /* here's where we'd copy the BPM value if timer reaches 0 */}, 5000)
   }
 
   return (
