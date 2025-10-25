@@ -1,11 +1,6 @@
 import { Action, ActionPanel, List } from "@raycast/api";
 import { useState } from "react";
 
-// interface Todo {
-//   title: string;
-//   isCompleted: boolean;
-// }
-
 export default function GetKeypress() {
   const [timestampArr, setTimestampArr] = useState<number[]>([])
 
@@ -24,8 +19,7 @@ export default function GetKeypress() {
     <List>
       <List.EmptyView
         icon="🥁"
-        title={`BPM: ${Math.floor(bpm)}`}
-        description="Tap SPACE/ENTER..."
+        title={timestampArr.length > 2 ? `BPM: ${Math.floor(bpm)}` : `Tap SPACE/ENTER...`}
         actions={
           <ActionPanel>
             <Action
@@ -39,14 +33,3 @@ export default function GetKeypress() {
     </List >
   );
 }
-
-
-// Suppose you counted 36 beats in 20 seconds. 
-// To find the BPM, you would follow these steps:
-// Divide the number of beats by the number of seconds: (36\20)=1.8
-// Multiply that number by 60: (1.8 * 60 = 108)
-// Result: Your BPM is 108.
-
-
-// calculate number of seconds by comparing difference of time stamps for 'active time key has been tapped'
-// (beats / time)*60 = BPM
