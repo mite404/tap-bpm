@@ -1,8 +1,7 @@
 import { Action, ActionPanel, List, Clipboard, Toast, showToast } from "@raycast/api";
 import { useRef, useState } from "react";
-// import { Timeout } from "timers"
 
-export default function GetKeypress() {
+export default function getBpm() {
   const [timestampArr, setTimestampArr] = useState<number[]>([])
   const timeoutId = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -21,7 +20,6 @@ export default function GetKeypress() {
     timeoutId.current = setTimeout(async () => {
       console.log('Timeout reached')
       await Clipboard.copy(bpm)
-      console.log(`BPM: ${Math.floor(bpm)} Copied to clipboard!`)
       await showToast({
         style: Toast.Style.Success,
         title: `BPM: ${Math.floor(bpm)}`,
@@ -42,7 +40,6 @@ export default function GetKeypress() {
             <Action
               title="Space" shortcut={{ modifiers: [], key: "space" }}
               onAction={() => {
-                console.log("Space/Enter pressed!")
                 handleTap()
               }}></Action>
           </ActionPanel>}
