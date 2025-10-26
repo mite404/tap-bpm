@@ -70,10 +70,12 @@ Test the extension from a fresh Raycast restart
   - How can the BPM display be larger than these?
     (i want the BPM to be in the middle w/ 1/2 time above and double time below
     smaller font pt. and grayer color)
-    - can print 1/2 time and double time BPM
+    - can print 1/2 time and double time BPM ✅
     - can flash on tap / flashes when BPM speed determined
+      - could be a limitation of Raycast's API
 
   - upon stopping tapping the BPM average is copied directly to clipboard ✅
     - reset timer ✅
+    - add Toast to notify user clipboard has BPM value ✅
 
   - menu bar extra
