@@ -23,8 +23,6 @@ Main view displays:
 
 ## STRETCH GOALS
 
-- Displays 1/2 time & double double time of currently calculated BPM
-- List of recently calculated BPMS (click to copy to clipboard)
 - Window flashes on tap and/or when clock moving forward @ BPM speed
 - Actions:
   - Reset (could this be a hotkey? CMD + R / CMD + SPACE)
