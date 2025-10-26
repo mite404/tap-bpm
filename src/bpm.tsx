@@ -20,6 +20,7 @@ export default function GetKeypress() {
     setTimestampArr([...timestampArr, timestamp])
     timeoutId.current = setTimeout(() => {
       console.log('Timeout reached')
+      setTimestampArr([])
       /* here's where we'd copy the BPM value if timer reaches 0 */}, 5000)
   }
 

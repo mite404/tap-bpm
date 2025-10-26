@@ -115,4 +115,6 @@ Test the extension from a fresh Raycast restart
     - can flash on tap / flashes when BPM speed determined
 
   - upon stopping tapping the BPM average is copied directly to clipboard
+    - reset timer ✅
+
   - menu bar extra
