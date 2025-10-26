@@ -21,10 +21,11 @@ export default function GetKeypress() {
     timeoutId.current = setTimeout(async () => {
       console.log('Timeout reached')
       await Clipboard.copy(bpm)
+      console.log(`BPM: ${Math.floor(bpm)} Copied to clipboard!`)
       await showToast({
         style: Toast.Style.Success,
         title: `BPM: ${Math.floor(bpm)}`,
-        message: 'Copied to clipboard!'
+        message: 'Copied to clipboard...'
       })
       setTimestampArr([])
       }, 5000)
@@ -35,6 +36,7 @@ export default function GetKeypress() {
       <List.EmptyView
         icon="🥁"
         title={timestampArr.length > 2 ? `BPM: ${Math.floor(bpm)}` : `Tap SPACE/ENTER...`}
+        description={timestampArr.length > 2 ? `Halftime: ${Math.floor(bpm)/2} | Doubletime: ${Math.floor(bpm)*2}` : ''}
         actions={
           <ActionPanel>
             <Action
