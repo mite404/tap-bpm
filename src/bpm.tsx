@@ -1,4 +1,4 @@
-import { Action, ActionPanel, List, Clipboard  } from "@raycast/api";
+import { Action, ActionPanel, List, Clipboard, Toast, showToast } from "@raycast/api";
 import { useRef, useState } from "react";
 // import { Timeout } from "timers"
 
@@ -21,7 +21,11 @@ export default function GetKeypress() {
     timeoutId.current = setTimeout(async () => {
       console.log('Timeout reached')
       await Clipboard.copy(bpm)
-      console.log(`BPM ${Math.floor(bpm)} copied to clipboard!`)
+      await showToast({
+        style: Toast.Style.Success,
+        title: `BPM: ${Math.floor(bpm)}`,
+        message: 'Copied to clipboard!'
+      })
       setTimestampArr([])
       }, 5000)
   }
