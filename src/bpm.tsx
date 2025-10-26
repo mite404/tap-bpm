@@ -1,4 +1,4 @@
-import { Action, ActionPanel, List } from "@raycast/api";
+import { Action, ActionPanel, List, Clipboard  } from "@raycast/api";
 import { useRef, useState } from "react";
 // import { Timeout } from "timers"
 
@@ -18,10 +18,12 @@ export default function GetKeypress() {
       clearTimeout(timeoutId.current)
     }
     setTimestampArr([...timestampArr, timestamp])
-    timeoutId.current = setTimeout(() => {
+    timeoutId.current = setTimeout(async () => {
       console.log('Timeout reached')
+      await Clipboard.copy(bpm)
+      console.log(`BPM ${Math.floor(bpm)} copied to clipboard!`)
       setTimestampArr([])
-      /* here's where we'd copy the BPM value if timer reaches 0 */}, 5000)
+      }, 5000)
   }
 
   return (
